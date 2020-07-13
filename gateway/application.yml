@@ -1,2 +1,11 @@
 xxl:
     name: default
+spring:
+  cloud:
+    gateway:
+      routes:
+        - predicates:
+            - Path=/aaa/**
+          filters:
+            - RewritePath=/aaa/(?<segment>/?.*), /$\{segment}
+          uri: http://localhost:8761
