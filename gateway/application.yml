@@ -9,3 +9,8 @@ spring:
           filters:
             - RewritePath=/aaa/(?<segment>/?.*), /$\{segment}
           uri: http://localhost:8761
+        - predicates:
+            - Path=/bbb/**
+          filters:
+            - RewritePath=/bbb/(?<segment>/?.*), /$\{segment}
+          uri: http://localhost:9001
